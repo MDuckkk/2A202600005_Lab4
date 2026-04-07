@@ -1,0 +1,13 @@
+Comment của rules theo thứ tự từ trên xuống
+<!-- Lý do: Tránh việc Agent tự ý suy đoán tham số khi gọi hàm (vd: tự biên ra thành phố khi khách chỉ nói "Tôi muốn đi khách sạn"). Việc dừng lại để hỏi giúp thu thập chính xác các args bắt buộc trước khi gọi tool. -->
+<!-- Lý do: Hướng dẫn Agent cách lập kế hoạch tuần tự (CoT). Các mô hình LLM thường có xu hướng chỉ giải quyết từng bước một cách rời rạc nếu không được đưa trước luồng chuyển dữ liệu (từ giá vé suy ra tiền khách sạn). -->
+<!-- Lý do: Hướng dẫn Agent cách lập kế hoạch tuần tự (CoT). Các mô hình LLM thường có xu hướng chỉ giải quyết từng bước một cách rời rạc nếu không được đưa trước luồng chuyển dữ liệu (từ giá vé suy ra tiền khách sạn). -->
+<!-- Lý do: Cải thiện trải nghiệm người dùng, đảm bảo format tiền tệ thống nhất và dễ đọc thay vì hiển thị những con số dạng raw integer trực tiếp từ API (VD: 1500000). -->
+<!-- Lý do: Tránh việc Agent chỉ chọn các chuyến rẻ nhất, mà bỏ quá các chuyến khác cũng đủ thỏa mãn budget người dùng đưa ra.-->
+
+
+Comment của constraints theo thứ tự từ trên xuống
+<!-- Lý do: Thiết lập nền tảng an toàn (Guardrails) để bot không bị lợi dụng làm các tác vụ ngoài mục đích kinh doanh (Prompt Injection / Off-topic questions). -->
+<!-- Lý do: Ngăn chặn hiện tượng ảo giác (Hallucination) - tật xấu phổ biến của LLM khi nó luôn cố gắng làm hài lòng người dùng bằng cách tự bịa ra thông tin không có thực nếu bị dồn ép. -->
+<!-- Lý do: LLM là một mô hình dự đoán từ ngữ nên cần call tools để tính toán chính xác nhất, tránh sai sót. -->
+<!-- Lý do: Ràng buộc tính logic của một Agent có nhiệm vụ "lên kế hoạch". Việc tìm ra vé và khách sạn chưa đủ, Agent phải giám sát sự khả thi của kế hoạch so với túi tiền người dùng. -->
